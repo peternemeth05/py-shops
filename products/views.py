@@ -12,7 +12,9 @@ def index(request): # http requests from the url,
     products = Product.objects.all() # or .filter() or .get() or .save()
 
 
-    return render(request, 'index.html')
+    return render(request, 
+                  'index.html', 
+                  {'products': products})
 
 def new(request):
     return HttpResponse('New Products')
