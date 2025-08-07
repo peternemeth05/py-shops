@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from django.http import HttpResponse
+from .models import Product
 
 # Create your views here.
 
@@ -8,7 +9,10 @@ from django.http import HttpResponse
 
 # /products -> index need to map this
 def index(request): # http requests from the url, 
-    return HttpResponse('Hello World')
+    products = Product.objects.all() # or .filter() or .get() or .save()
+
+
+    return render(request, 'index.html')
 
 def new(request):
     return HttpResponse('New Products')
